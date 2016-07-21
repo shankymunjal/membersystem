@@ -1,0 +1,62 @@
+
+/*
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+.navbar-fixed-top {
+  border: 0;
+}
+
+/*
+ * Sidebar
+ */
+
+/* Hide for mobile, show later */
+.sidebar {
+  display: none;
+}
+
+.col-md-4 {
+  width: 26.333333%;
+  margin-right: 6%;
+}
+
+.col-md-4.last {
+margin-right: 0;
+}
+
+.panel-body {
+  height: 200px;
+  width: 25%;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.row.col2 {
+  text-align: center;
+}
+
+.row.col2 .col-md-4 {
+  display:inline-block;
+  float: none;
+}
+
+
+/*
+ * Main content
+ */
+
+.main {
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+.main .page-header {
+  margin-top: 0;
+}
+

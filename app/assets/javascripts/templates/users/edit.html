@@ -1,0 +1,358 @@
+<nav class="navbar navbar-inverse navbar-top" ng-include src="header"></nav>
+<div class="col-md-10">
+    <form class="tab-pane active form-horizontal" id="first" name="userForm" novalidate ng-submit="save()">
+        <h3 class="block">Edit user</h3>
+<div class="row">
+  <div class="col-md-12">
+    <h4 class="sub-title">Personal Info</h4>
+    <hr>
+  </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-md-2">Title </label>
+    <div class="col-md-3">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+            <select class="form-control" ng-model="user.title" ng-options="t for t in membertitle">
+            </select>
+        </div>        
+    </div>
+    <label class="control-label col-md-2">Date of Birth </label>
+    <div class="col-md-3">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-calendar fa" aria-hidden="true"></i></span>
+            <input type="date" class="form-control" ng-model="user.dob" placeholder="MH"/>
+        </div>
+    </div>
+</div>
+<div class="form-group" ng-class="{'has-error' : submitted && userForm.first_name.$invalid}">
+    <label class="control-label col-md-2">First name</label>
+    <div class="col-md-3">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+            <input type="text" name="firstname" class="form-control" ng-model="user.firstname" required placeholder="first name"/>
+        </div>
+    </div>
+    <p ng-show=" submitted && userForm.firstname.$error.required" class="help-block">*</p>
+    <label class="control-label col-md-2">Last name </label>
+    <div class="col-md-3">
+        <div class="input-group" ng-class="{'has-error' : submitted && userForm.last_name.$invalid}">
+            <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+            <input type="text" name="lastname" class="form-control" ng-model="user.lastname" required placeholder="last name"/>
+        </div>
+    </div>
+    <p ng-show=" submitted && userForm.lastname.$invalid" class="help-block">*</p>
+</div>
+<div class="form-group">
+    <label class="control-label col-md-2">Remarks</label>
+    <div class="col-md-8">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-comment fa" aria-hidden="true"></i></span>
+            <!-- <input type="text" name="mobile" class="form-control" ng-model="user.remarks" placeholder="remarks"/> -->
+            <textarea type="text" name="mobile" class="form-control" ng-model="user.remarks" placeholder="remarks" rows="3" cols="8" />
+        </div>        
+    </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <h4 class="sub-title">Account Info</h4>
+    <hr>
+  </div>
+</div>
+<div class="form-group" ng-class="{'has-error' : submitted && userForm.email.$invalid}">
+    <label class="control-label col-md-2">Email <span class="required">* </span> </label>
+    <div class="col-md-3">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+            <input type="email" name="email" class="form-control" ng-model="user.email" required placeholder="test@example.com"/>
+        </div>        
+    </div>
+    <p ng-show="submitted && userForm.email.$error.required" class="help-block">*</p>
+    <p ng-show="submitted && userForm.email.$error.email" class="help-block">Enter valid email</p>
+    <label class="control-label col-md-2">Alternate Email </label>
+    <div class="col-md-3">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+            <input type="text" name="alternate_email" class="form-control" ng-model="user.alternate_email" placeholder="alternate email"/>
+        </div>        
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-md-2">Password </label>
+    <div class="col-md-3">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+            <input type="password" name="password_digest" class="form-control" ng-model="user.password" placeholder="password"/>
+        </div>        
+    </div>
+    <p ng-show="submitted && userForm.password_digest.$invalid" class="help-block">*</p>
+    <label class="control-label col-md-2">Confirm Password </label>
+    <div class="col-md-3">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+            <input type="password" name="confirm_password" class="form-control" placeholder="confirm password"/>
+        </div>        
+    </div>
+    <p ng-show="submitted && userForm.password_digest.$invalid" class="help-block">*</p>
+</div>
+<div class="form-group">
+    <label class="control-label col-md-2">Phone</label>
+    <div class="col-md-3">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
+            <input type="text" name="phone_no" class="form-control" ng-model="user.phone_no" placeholder="phone no"/>
+        </div>        
+    </div>
+    <label class="control-label col-md-2">Mobile</label>
+    <div class="col-md-3">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-mobile fa" aria-hidden="true"></i></span>
+            <input type="text" name="mobile" class="form-control" ng-model="user.mobile" placeholder="mobile no"/>
+        </div>        
+    </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <h4 class="sub-title">User Info</h4>
+    <hr>
+  </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-md-2">user No</label>
+    <div class="col-md-3">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-user-secret fa" aria-hidden="true"></i></span>
+            <input type="text" name="member_no" class="form-control" ng-model="user.member_no" placeholder="user no"/>
+        </div>        
+    </div>
+    <label class="control-label col-md-2">user Type</label>
+    <div class="col-md-3">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
+            <select class="form-control" ng-model="user.member_type" ng-options="x for x in membertype">
+            </select>
+        </div>        
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-md-2">Date Joined</label>
+    <div class="col-md-3">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-calendar fa" aria-hidden="true"></i></span>
+            <input type="date" name="date_joined" class="form-control" ng-model="user.date_joined" placeholder="date joined"/>
+        </div>        
+    </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <h4 class="sub-title">Address Info</h4>
+    <hr>
+  </div>
+</div>
+<div ng-repeat="address in addresses">
+    <div ng-hide="address._destroy">
+        <div class="form-group">
+            <label class="control-label col-md-2">Unit No</label>
+            <div class="col-md-3">
+                <input type="text" class="form-control" ng-model="address.unit_no" placeholder="Address 1"/>
+            </div>
+            <label class="control-label col-md-2">Street No</label>
+            <div class="col-md-3">
+                <input type="text" class="form-control" ng-model="address.street_no" placeholder="Address 2"/>
+            </div>
+            <div class="col-md-2">
+                <a ng-click="removeAddress($index)" class="btn btn-xs btn-danger">X</a>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Street Name </label>
+            <div class="col-md-3">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-road fa" aria-hidden="true"></i></span>
+                    <input type="text" name="street_name" class="form-control" ng-model="address.street_name" placeholder="street name"/>
+                </div>        
+            </div>
+            <label class="control-label col-md-2">Suburb </label>
+            <div class="col-md-3">
+                <input type="text" class="form-control" ng-model="address.suburb" placeholder="MH"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">City </label>
+            <div class="col-md-3">
+                <input type="text" class="form-control" ng-model="address.city" placeholder="Pune"/>
+            </div>
+            <label class="control-label col-md-2">Postcode</label>
+            <div class="col-md-3">
+                <input type="text" class="form-control" ng-model="address.postcode" placeholder="India"/>
+            </div>
+        </div>
+        <hr/>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-md-offset-12">
+        <a ng-click="addAddress()" class="btn btn-success btn-xs">+ Add address </a>
+    </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <h4 class="sub-title">Documents Info</h4>
+    <hr>
+  </div>
+</div>
+<div ng-repeat="doc in user.documents">
+    <div ng-hide="doc._destroy">
+        <div class="form-group">
+            <label class="control-label col-md-2">Select File </label>
+            <div class="col-md-3">
+                <div class="input-group">
+                    <input id="input-1" type="file" ng-model="doc.document" class="file">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <a ng-click="removeDocument($index, user)" class="btn btn-xs btn-danger">X</a>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">File Name </label>
+            <div class="col-md-3">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                    <input type="text" class="form-control" ng-model="doc.doc_name" placeholder="file name"/>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Remove Attachment </label>
+            <div class="col-md-3">
+                <div class="input-group">
+                    <input type="checkbox" ng-model="doc.remove_document" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-md-offset-12">
+        <a ng-click="addDocument()" class="btn btn-success btn-xs">+ Add Document </a>
+    </div>
+</div>
+<div ng-repeat="nominee in user.nominees" ng-if="user.member_type == 'Life user' || user.member_type == 'Trustee' ">
+    <div ng-hide="nominee._destroy">
+        <div class="row">
+          <div class="col-md-12">
+            <h4 class="sub-title">Nominee Info</h4>
+            <hr>
+          </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3">Photo </label>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                    <input id="input-1" type="file" class="file">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Title </label>
+            <div class="col-md-3">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                    <select class="form-control" ng-model="nominee.title" ng-options="t for t in membertitle">
+                    </select>
+                </div>        
+            </div>
+            <label class="control-label col-md-2">Date of Birth </label>
+            <div class="col-md-3">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-calendar fa" aria-hidden="true"></i></span>
+                    <input type="date" class="form-control" ng-model="nominee.dob" placeholder="MH"/>
+                </div>
+            </div>
+        </div>
+        <div class="form-group" ng-class="{'has-error' : submitted && userForm.first_name.$invalid}">
+            <label class="control-label col-md-2">First name</label>
+            <div class="col-md-3">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                    <input type="text" name="firstname" class="form-control" ng-model="nominee.firstname" required placeholder="first name"/>
+                </div>
+            </div>
+            <p ng-show=" submitted && userForm.firstname.$error.required" class="help-block">*</p>
+            <label class="control-label col-md-2">Last name </label>
+            <div class="col-md-3">
+                <div class="input-group" ng-class="{'has-error' : submitted && userForm.last_name.$invalid}">
+                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                    <input type="text" name="lastname" class="form-control" ng-model="nominee.lastname" required placeholder="last name"/>
+                </div>
+            </div>
+            <p ng-show=" submitted && userForm.lastname.$invalid" class="help-block">*</p>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Remarks</label>
+            <div class="col-md-8">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-comment fa" aria-hidden="true"></i></span>
+                    <!-- <input type="text" name="mobile" class="form-control" ng-model="user.remarks" placeholder="remarks"/> -->
+                    <textarea type="text" name="mobile" class="form-control" ng-model="nominee.remarks" placeholder="remarks" rows="3" cols="8" />
+                </div>        
+            </div>
+        </div>
+        <div class="form-group" ng-class="{'has-error' : submitted && userForm.email.$invalid}">
+            <label class="control-label col-md-2">Email <span class="required">* </span> </label>
+            <div class="col-md-3">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                    <input type="email" name="email" class="form-control" ng-model="nominee.email" required placeholder="test@example.com"/>
+                </div>        
+            </div>
+            <p ng-show="submitted && userForm.email.$error.required" class="help-block">*</p>
+            <p ng-show="submitted && userForm.email.$error.email" class="help-block">Enter valid email</p>
+            <label class="control-label col-md-2">Alternate Email </label>
+            <div class="col-md-3">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                    <input type="text" name="alternate_email" class="form-control" ng-model="nominee.alternate_email" placeholder="alternate email"/>
+                </div>        
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Phone</label>
+            <div class="col-md-3">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
+                    <input type="text" name="phone_no" class="form-control" ng-model="nominee.phone_no" placeholder="phone no"/>
+                </div>        
+            </div>
+            <label class="control-label col-md-2">Mobile</label>
+            <div class="col-md-3">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-mobile fa" aria-hidden="true"></i></span>
+                    <input type="text" name="mobile" class="form-control" ng-model="nominee.mobile" placeholder="mobile no"/>
+                </div>        
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Date Nominated</label>
+            <div class="col-md-3">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-calendar fa" aria-hidden="true"></i></span>
+                    <input type="date" name="date_joined" class="form-control" ng-model="nominee.date_nominated" placeholder="date joined"/>
+                </div>        
+            </div>
+        </div>
+        <hr/>
+    </div>
+</div>
+<div class="form-group">
+    <div class="pull-left">
+        <a class="btn btn-default" href="#/members"> Back</a>
+        <button type="submit" class="btn btn-primary" ng-click="submitted=true">Submit</button>
+    </div>
+</div>
+
+        
+    </form>
+</div>

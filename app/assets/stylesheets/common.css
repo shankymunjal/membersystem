@@ -1,0 +1,136 @@
+.controls.readonly{
+ font-size: 14px;
+ line-height: 20px;
+ padding-top: 5px;
+}
+.floatLeft{
+	float: left;
+}
+.addButton{
+	float: right;
+	margin-top: 21px;
+}
+.addDealItem{
+	float: right;
+	margin-top: -20px
+}
+hr{
+	border-color: #000;
+}
+.fullWidth{
+	width: 100%
+}
+.table-responsive{
+	clear: both;
+}
+
+.formContainer {
+	border: 2px solid #000;
+	margin-bottom: 10px;
+	float: left;
+	width: 100%;
+}
+
+.formContainer h4 {
+	border-bottom: 2px solid #000;
+	padding: 10px;
+}
+
+.formStep {
+	padding-right: 20px;
+}
+
+.step1 .step1Submit {
+  float: right;
+	margin-right: 0;
+}
+
+.controlButtons .form-group {
+	float: right;
+	margin-right: 0;
+}
+
+.itemList ul {
+	list-style: none;
+	padding: 0;
+}
+
+td .imgContainer {
+	width: 100%;
+	max-width: 30%;
+	min-width: 100px;
+}
+
+td .imgContainer img {
+	width: 100%;
+	height: auto;
+}
+.form-control{
+	width: 80%;
+}
+
+.sideimg {
+	height: 300px;
+}
+
+.sideimg .imgContainer {
+	width: 100%;
+	max-width: 90%;
+	min-width: 100px;
+	position: relative;
+	top: 75px;
+}
+
+.sideimg .imgContainer img {
+	width: 100%;
+	height: auto;
+}
+
+.package {
+	margin-bottom: 20px;
+}
+
+.packageList {
+	width: 100%;
+	float: left;
+	height: 30px;
+}
+
+.packageItem .checkbox {
+	float: left;
+	min-width: 20%;
+}
+
+.packageItem .quantity {
+	margin-left: 2%;
+	margin-top: 1%;
+}
+.glyphicon{
+	cursor: pointer;
+}
+
+.ng-invalid.ng-dirty{
+	border-color: #FA787E;
+}
+
+.ng-valid.ng-dirty{
+	border-color: #78FA89;
+}
+.error {
+	color:red;
+}
+
+.col-margin-6 {
+	margin: 0 !important;
+}
+.placeholders .less-width {
+  width: 27% !important;
+}
+
+.loading{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
