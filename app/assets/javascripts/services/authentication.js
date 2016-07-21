@@ -43,7 +43,6 @@ memberSystem.factory('AuthService', ['$http', 'Session', '$cookieStore', functio
 
 memberSystem.service('Session', ['$cookieStore', '$rootScope', function ($cookieStore, $rootScope) {
   this.create = function (user) {
-    debugger
     this.auth_token = user.auth_token;
     this.id = user.id;
     this.role = user.role;
