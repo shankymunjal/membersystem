@@ -57,8 +57,10 @@ function UsersNewCtrl ($scope, $routeParams, User, $location){
 	$scope.addAddress = function(){
 		$scope.addresses.push({})
 	}
-	$scope.removeAddress = function(index){
+	$scope.removeAddress = function(index, address){
 		$scope.addresses.splice(index, 1)
+		address._destroy = true
+		$scope.addresses.push(address)
 	}
 	$scope.user = {}
 }
