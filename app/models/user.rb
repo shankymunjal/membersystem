@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
   has_many :addresses
 
   accepts_nested_attributes_for :addresses, :allow_destroy => true
+
+  def date_joined
+  	self[:date_joined].strftime("%Y-%m-%d") if self[:date_joined]
+  end
 end
